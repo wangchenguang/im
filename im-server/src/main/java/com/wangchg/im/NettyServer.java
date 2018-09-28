@@ -1,5 +1,6 @@
-package com.wangchg.im.server;
+package com.wangchg.im;
 
+import com.wangchg.im.server.handler.ServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -18,8 +19,8 @@ public class NettyServer {
                 .channel(NioServerSocketChannel.class)
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
-                    protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
-
+                    protected void initChannel(NioSocketChannel ch) throws Exception {
+                        ch.pipeline().addLast(new ServerHandler());
                     }
                 });
         serverBootstrap.bind(1000).addListener(new GenericFutureListener<Future<? super Void>>() {
