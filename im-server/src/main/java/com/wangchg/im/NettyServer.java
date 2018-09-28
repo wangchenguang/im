@@ -6,10 +6,12 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.util.concurrent.Future;
-import io.netty.util.concurrent.GenericFutureListener;
+
+import java.util.Date;
 
 public class NettyServer {
+    private static final int PORT = 8000;
+
     public static void main(String[] args) {
         NioEventLoopGroup bossGroup = new NioEventLoopGroup();
         NioEventLoopGroup workGroup = new NioEventLoopGroup();
@@ -23,14 +25,16 @@ public class NettyServer {
                         ch.pipeline().addLast(new ServerHandler());
                     }
                 });
-        serverBootstrap.bind(1000).addListener(new GenericFutureListener<Future<? super Void>>() {
-            @Override
-            public void operationComplete(Future<? super Void> future) throws Exception {
-                if (future.isSuccess()) {
-                    System.out.println("端口绑定成功");
-                } else {
-                    System.out.println("端口绑定失败");
-                }
+
+        bind(serverBootstrap, PORT);
+    }
+
+    private static void bind(final ServerBootstrap serverBootstrap, final int port) {
+        serverBootstrap.bind(port).addListener(future -> {
+            if (future.isSuccess()) {
+                System.out.println(new Date() + ": 端口[" + port + "]绑定成功!");
+            } else {
+                System.err.println("端口[" + port + "]绑定失败!");
             }
         });
     }
