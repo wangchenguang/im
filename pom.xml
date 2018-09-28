@@ -23,6 +23,10 @@
         <maven.compiler.target>1.10</maven.compiler.target>
         <junit.version>4.12</junit.version>
         <netty.version>4.1.29.Final</netty.version>
+        <lombok.version>1.18.2</lombok.version>
+        <guava.version>26.0-jre</guava.version>
+        <fastjson.version>1.2.49</fastjson.version>
+        <jmockit.version>1.42</jmockit.version>
     </properties>
 
     <dependencies>
@@ -30,6 +34,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jmockit</groupId>
+            <artifactId>jmockit</artifactId>
+            <version>${jmockit.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
