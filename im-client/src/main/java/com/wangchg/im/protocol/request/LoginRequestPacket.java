@@ -2,6 +2,7 @@ package com.wangchg.im.protocol.request;
 
 import com.wangchg.im.protocol.Packet;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import static com.wangchg.im.protocol.command.Command.LOGIN_REQUEST;
 
@@ -11,6 +12,7 @@ import static com.wangchg.im.protocol.command.Command.LOGIN_REQUEST;
  * @date 2018/9/28
  */
 @Data
+@NoArgsConstructor
 public class LoginRequestPacket extends Packet {
     private String userId;
     private String username;

@@ -27,6 +27,7 @@
         <guava.version>26.0-jre</guava.version>
         <fastjson.version>1.2.49</fastjson.version>
         <jmockit.version>1.42</jmockit.version>
+        <joda-time.version>2.10</joda-time.version>
     </properties>
 
     <dependencies>

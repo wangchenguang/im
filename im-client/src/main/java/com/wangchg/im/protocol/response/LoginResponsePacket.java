@@ -18,6 +18,5 @@ public class LoginResponsePacket extends Packet {
     @Override
     public Byte getCommand() {
         return LOGIN_RESPONSE;
-
     }
 }
