@@ -2,6 +2,7 @@ package com.wangchg.im;
 
 import com.wangchg.im.codec.PacketDecoder;
 import com.wangchg.im.codec.PacketEncoder;
+import com.wangchg.im.server.handler.LifeCycleTestHandler;
 import com.wangchg.im.server.handler.LoginRequestHandler;
 import com.wangchg.im.server.handler.MessageRequestHandler;
 import io.netty.bootstrap.ServerBootstrap;
@@ -25,6 +26,7 @@ public class NettyServer {
                 .childHandler(new ChannelInitializer<NioSocketChannel>() {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
+                        ch.pipeline().addLast(new LifeCycleTestHandler());
                         ch.pipeline().addLast(new PacketDecoder());
                         ch.pipeline().addLast(new LoginRequestHandler());
                         ch.pipeline().addLast(new MessageRequestHandler());
