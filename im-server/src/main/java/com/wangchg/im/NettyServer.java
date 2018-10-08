@@ -4,7 +4,6 @@ import com.wangchg.im.codec.PacketDecoder;
 import com.wangchg.im.codec.PacketEncoder;
 import com.wangchg.im.codec.Spliter;
 import com.wangchg.im.server.handler.AuthHandler;
-import com.wangchg.im.server.handler.LifeCycleTestHandler;
 import com.wangchg.im.server.handler.LoginRequestHandler;
 import com.wangchg.im.server.handler.MessageRequestHandler;
 import io.netty.bootstrap.ServerBootstrap;
@@ -16,7 +15,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import java.util.Date;
 
 public class NettyServer {
-    private static final int PORT = 8000;
+    private static final int PORT = 8080;
 
     public static void main(String[] args) {
         NioEventLoopGroup bossGroup = new NioEventLoopGroup();
