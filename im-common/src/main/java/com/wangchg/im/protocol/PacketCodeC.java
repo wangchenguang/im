@@ -7,7 +7,6 @@ import com.wangchg.im.protocol.response.MessageResponsePacket;
 import com.wangchg.im.serialize.Serializer;
 import com.wangchg.im.serialize.impl.JSONSerializer;
 import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufAllocator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +22,7 @@ import static com.wangchg.im.protocol.command.Command.MESSAGE_RESPONSE;
  * @date 2018/9/28
  */
 public class PacketCodeC {
-    private static final int MAGIC_NUMBER = 0x12345678;
+    public static final int MAGIC_NUMBER = 0x12345678;
     public static final PacketCodeC INSTANCE = new PacketCodeC();
 
     private final Map<Byte, Class<? extends Packet>> packetTypeMap;

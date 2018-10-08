@@ -1,10 +1,11 @@
 package com.wangchg.im.protocol.request;
 
 import com.wangchg.im.protocol.Packet;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static com.wangchg.im.protocol.command.Command.LOGIN_REQUEST;
+import static com.wangchg.im.protocol.command.Command.MESSAGE_REQUEST;
 
 /**
  * @author wangchenguang
@@ -13,13 +14,13 @@ import static com.wangchg.im.protocol.command.Command.LOGIN_REQUEST;
  */
 @Data
 @NoArgsConstructor
-public class LoginRequestPacket extends Packet {
-    private String userId;
-    private String username;
-    private String password;
+@AllArgsConstructor
+public class MessageRequestPacket extends Packet {
+    private String toUserId;
+    private String message;
 
     @Override
     public Byte getCommand() {
-        return LOGIN_REQUEST;
+        return MESSAGE_REQUEST;
     }
 }
