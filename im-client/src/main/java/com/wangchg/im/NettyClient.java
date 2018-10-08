@@ -26,8 +26,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class NettyClient {
     private static final int MAX_RETRY = 5;
-    private static final String HOST = "server.natappfree.cc";
-    private static final int PORT = 34183;
+    private static final String HOST = "localhost";
+    private static final int PORT = 7070;
 
     public static void main(String[] args) {
         NioEventLoopGroup workGroup = new NioEventLoopGroup();

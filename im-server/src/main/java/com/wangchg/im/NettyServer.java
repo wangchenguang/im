@@ -15,7 +15,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import java.util.Date;
 
 public class NettyServer {
-    private static final int PORT = 8080;
+    private static final int PORT = 7070;
 
     public static void main(String[] args) {
         NioEventLoopGroup bossGroup = new NioEventLoopGroup();
